@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>30 Days of React Challenges</title>
     <style>
-      *{
+      * {
         box-sizing: border-box;
         padding: 0;
         margin: 0;
@@ -16,7 +16,7 @@
       body {
         height: 100%;
         line-height: 1.5;
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-weight: 300;
         color: black;
       }
@@ -82,7 +82,6 @@
         text-align: center;
         line-height: 60px;
       }
-
     </style>
   </head>
   <body>
@@ -101,41 +100,61 @@
       // To get the root element from HTML document
       const rootElement = document.querySelector(".root");
 
-      // Example of a JSX
+      // JSX Header element
+      const author = {
+        firstName: "He Xiang",
+        lastName: "Koh",
+      };
+      const welcome = "Welcome to 30 Days of React";
+      const title = "Getting started with React";
       const header = (
         <header
           style={{ border: "2px solid red", color: "black", fontSize: "18px" }}
         >
           <div className="header-wrapper">
-            <h1>Welcome to React</h1>
-            <h2>Getting started with react</h2>
+            <h1>{welcome}</h1>
+            <h2>{title}</h2>
+            <h3>
+              {author.firstName} {author.lastName}
+            </h3>
           </div>
         </header>
       );
 
       // JSX Main element
       // JSX Main Element Style
+      const techs = ["HTML", "CSS", "Javascript"];
+      const techsFormatted = techs.map( tech => <li>{tech}</li>)
       const mainStyles = { border: "2px solid green" };
       const main = (
         <main style={mainStyles}>
           <p>Prerequsite to get started react.js:</p>
           <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Javascript</li>
+            {techsFormatted}
           </ul>
         </main>
       );
 
       // JSX Footer element
       // JSX Footer Element Style
+      const numOne = 2000;
+      const numTwo = 20;
+
       const footerStyles = {
-        backgroundColor: '#61DBFB',
-      }
+        backgroundColor: "#61DBFB",
+      };
+
+      const currentYear = new Date().getFullYear()
+      const myBornDate = 1990
 
       const footer = (
         <footer style={footerStyles}>
-          <p>Copyright 2020</p>
+          <p>
+            {numOne} + {numTwo} = {numOne + numTwo}
+          </p>
+          <p>
+           My age  = {currentYear - myBornDate}
+          </p>
         </footer>
       );
 
@@ -147,6 +166,7 @@
         </div>
       );
 
+      // Render all the JSX in app on the root element (Using react)
       ReactDOM.render(app, rootElement);
     </script>
   </body>
